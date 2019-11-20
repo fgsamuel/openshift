@@ -1,4 +1,3 @@
-FROM php:7.0-cli
-COPY . /usr/src/myapp
-WORKDIR /usr/src/myapp
-CMD [ "php", "./index.php" ]
+FROM registry.access.redhat.com/rhscl/php-70-rhel7
+COPY ./index.php /opt/app-root/src/index.php
+CMD ["container-entrypoint", "/usr/libexec/s2i/run"]
